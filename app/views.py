@@ -26,11 +26,11 @@ def index():
 	posts = [
 		{
 			'author': { 'nickname': 'Robert' },
-			'body': 'When I am king, you will be first against the wall.'
+			'body': 'Hi.'
 		},
 		{
 			'author': { 'nickname': 'Jason' },
-			'body': 'With your opinion which is of no consequence at all.'
+			'body': 'Stupid.'
 		}
 	]
 	return render_template('index.html', title=title, user=user, posts=posts)
