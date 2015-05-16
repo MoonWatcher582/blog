@@ -24,5 +24,19 @@ def init_db():
 		#commit changes
 		db.commit()
 
+#these functions will be called before a request
+@app.before_request
+def before_request():
+	#g stores information for one request only
+	g.db = connect_db()
+
+#these functions will be called after a request
+@app.teardown_request
+def teardown_request(exception):
+	db = getattr(g, 'db', None)
+	if db is not None:
+		db.close()
+
+
 if __name__ == '__main__':
 	app.run()
